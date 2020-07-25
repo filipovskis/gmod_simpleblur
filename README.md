@@ -3,6 +3,8 @@ Cheap blur for user interfaces
 
 # Usage example
 ```
-local x, y = self:LocalToScreen(0, 0)
-draw.Blur(-x, -y)
+function PANEL:Paint( w, h )
+  local x, y = self:LocalToScreen(0, 0)
+  draw.Blur(-x, -y)
+end
 ```
