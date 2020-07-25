@@ -1,5 +1,5 @@
 # Simple Blur
-Cheap blur for user interfaces
+Cheap blur snippet for vgui elements
 
 # Usage example
 ```lua
