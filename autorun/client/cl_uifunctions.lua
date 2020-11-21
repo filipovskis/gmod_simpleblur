@@ -34,10 +34,19 @@ local mat = CreateMaterial('blurscreen_cache', 'UnlitGeneric', {
 do
 	local ScrW, ScrH = ScrW, ScrH
 	
-	function draw.Blur(x, y)
-		local w, h = ScrW(), ScrH()
+	function draw.Blur()
 		render.SetMaterial(mat)
-		render.DrawScreenQuadEx(x, y, w, h)
+		render.DrawScreenQuadEx(0, 0, ScrW(), ScrH())
+		shouldupdate = true
+	end
+	
+	function draw.BlurSelective(x, y, w, h)
+		
+		render.SetScissorRect(x, y, w + x, h + y, true)
+		render.SetMaterial(mat)
+		render.DrawScreenQuadEx(0, 0, ScrW(), ScrH())
+		render.SetScissorRect(0, 0, 0, 0, false)
+		
 		shouldupdate = true
 	end
 end
